@@ -1,0 +1,30 @@
+.attempt-table-wrapper {
+  overflow: hidden;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.table-cell-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.table-icon {
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.text-positive { color: var(--risk-low); font-weight: 500; }
+.text-negative { color: var(--risk-high); font-weight: 500; }
+
+.table-type-badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: hsla(215, 15%, 25%, 0.3);
+  color: var(--text-secondary);
+  font-weight: 500;
+}

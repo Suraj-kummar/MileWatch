@@ -1,0 +1,57 @@
+# ═══════════════════════════════════════════════════════════════════════
+# MileWatch Backend — Application Configuration
+# ═══════════════════════════════════════════════════════════════════════
+# WHY H2 (not PostgreSQL):
+# - Zero setup: runs embedded, no install, no Docker
+# - Perfect for portfolio demos and interviews
+# - Data persists to file (not in-memory) so it survives restarts
+# - Switch to PostgreSQL by changing the datasource config below
+# ═══════════════════════════════════════════════════════════════════════
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: milewatch-backend
+
+  # ── Database ─────────────────────────────────────────────────────────
+  datasource:
+    url: jdbc:h2:file:./data/milewatch-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # ── Jackson ──────────────────────────────────────────────────────────
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: non_null
+
+# ── ML Service Configuration ──────────────────────────────────────────
+ml-service:
+  base-url: http://localhost:5000
+  connect-timeout-ms: 5000
+  read-timeout-ms: 10000
+  max-retries: 2
+
+# ── Logging ────────────────────────────────────────────────────────────
+logging:
+  level:
+    com.milewatch: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: WARN

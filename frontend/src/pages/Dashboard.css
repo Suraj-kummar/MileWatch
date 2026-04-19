@@ -1,0 +1,66 @@
+.dashboard {
+  max-width: 100%;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.dashboard-error {
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--risk-medium);
+  font-size: 1rem;
+}
+
+/* Risk distribution bar */
+.distribution-bar {
+  margin-bottom: var(--space-xl);
+}
+
+.distribution-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.distribution-track {
+  display: flex;
+  height: 32px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  gap: 2px;
+}
+
+.distribution-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  min-width: 28px;
+  transition: flex var(--transition-slow);
+}
+
+.seg-high { background: var(--risk-high); }
+.seg-medium { background: var(--risk-medium); color: var(--text-inverse); }
+.seg-low { background: var(--risk-low); }
+
+.distribution-legend {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-sm);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.distribution-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
