@@ -1,0 +1,25 @@
+services:
+  # The Python Machine Learning Service
+  - type: web
+    name: milewatch-ml
+    env: python
+    rootDir: ml-service
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -b 0.0.0.0:5000 service.app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+
+  # The Java Spring Boot Backend
+  - type: web
+    name: milewatch-backend
+    env: java
+    rootDir: backend
+    buildCommand: sh ./mvnw clean package -DskipTests
+    startCommand: java -jar target/milewatch-backend-1.0.0.jar
+    envVars:
+      - key: PORT
+        value: 8080
+      # Points to the ML service URL on Render automatically
+      - key: ML_SERVICE_URL
+        value: https://milewatch-ml.onrender.com
