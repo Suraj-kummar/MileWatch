@@ -1,0 +1,10 @@
+[build]
+  base = "frontend/"
+  command = "npm run build"
+  publish = "dist/"
+
+# This redirect is required for React Router to work correctly on Netlify
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
