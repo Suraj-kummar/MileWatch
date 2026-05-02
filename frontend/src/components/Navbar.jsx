@@ -1,8 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, LayoutDashboard, History, PlusCircle } from 'lucide-react';
+import { Shield, LayoutDashboard, History, PlusCircle, Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 
-export default function Navbar() {
+export default function Navbar({ theme, onToggleTheme }) {
   const location = useLocation();
 
   const links = [
@@ -33,9 +33,24 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="navbar-status">
-          <span className="status-dot"></span>
-          <span className="status-text">System Online</span>
+        <div className="navbar-right">
+          <button
+            id="theme-toggle"
+            className="theme-toggle-btn"
+            onClick={onToggleTheme}
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            <span className="theme-toggle-label">
+              {theme === 'dark' ? 'Light' : 'Dark'}
+            </span>
+          </button>
+
+          <div className="navbar-status">
+            <span className="status-dot"></span>
+            <span className="status-text">System Online</span>
+          </div>
         </div>
       </div>
     </nav>

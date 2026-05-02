@@ -85,6 +85,80 @@
   --max-content: 1280px;
 }
 
+/* ── Light Mode Theme ───────────────────────────────────────────────── */
+
+[data-theme="light"] {
+  /* Background layers — warm creamy yellow */
+  --bg-primary:    hsl(48, 60%, 94%);
+  --bg-secondary:  hsl(46, 55%, 90%);
+  --bg-tertiary:   hsl(44, 50%, 86%);
+  --bg-card:       hsla(48, 50%, 97%, 0.75);
+  --bg-card-hover: hsla(48, 50%, 92%, 0.85);
+  --bg-input:      hsla(46, 40%, 98%, 0.9);
+
+  /* Text */
+  --text-primary:   hsl(30, 20%, 15%);
+  --text-secondary: hsl(30, 12%, 38%);
+  --text-tertiary:  hsl(30, 8%, 55%);
+  --text-inverse:   hsl(48, 60%, 94%);
+
+  /* Brand / Accent */
+  --accent-primary:     hsl(217, 80%, 45%);
+  --accent-primary-dim: hsla(217, 80%, 45%, 0.12);
+  --accent-primary-glow: hsla(217, 80%, 45%, 0.25);
+
+  /* Risk colors stay the same, slightly adjusted for light bg */
+  --risk-high:       hsl(0, 72%, 48%);
+  --risk-high-dim:   hsla(0, 72%, 48%, 0.1);
+  --risk-high-glow:  hsla(0, 72%, 48%, 0.2);
+
+  --risk-medium:     hsl(38, 88%, 40%);
+  --risk-medium-dim: hsla(38, 88%, 40%, 0.1);
+  --risk-medium-glow:hsla(38, 88%, 40%, 0.2);
+
+  --risk-low:        hsl(152, 60%, 32%);
+  --risk-low-dim:    hsla(152, 60%, 32%, 0.1);
+  --risk-low-glow:   hsla(152, 60%, 32%, 0.2);
+
+  /* Borders */
+  --border-subtle: hsla(40, 30%, 60%, 0.35);
+  --border-strong: hsla(40, 30%, 50%, 0.5);
+
+  /* Shadows */
+  --shadow-sm:   0 1px 3px hsla(30, 20%, 30%, 0.12);
+  --shadow-md:   0 4px 12px hsla(30, 20%, 30%, 0.15);
+  --shadow-lg:   0 8px 30px hsla(30, 20%, 30%, 0.18);
+  --shadow-glow: 0 0 20px hsla(217, 80%, 45%, 0.08);
+}
+
+/* Light mode body gradient override */
+[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse at 20% 0%, hsla(48, 80%, 70%, 0.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 100%, hsla(38, 90%, 65%, 0.18) 0%, transparent 55%);
+}
+
+/* Light mode navbar override */
+[data-theme="light"] .navbar {
+  background: hsla(48, 55%, 90%, 0.85);
+  border-bottom-color: var(--border-subtle);
+}
+
+/* Light mode table header */
+[data-theme="light"] .data-table th {
+  background: hsla(46, 50%, 88%, 0.6);
+}
+
+/* ── Global Theme Transition ────────────────────────────────────────── */
+
+*, *::before, *::after {
+  transition:
+    background-color var(--transition-slow),
+    border-color var(--transition-slow),
+    color var(--transition-slow),
+    box-shadow var(--transition-slow);
+}
+
 /* ── Reset & Base ──────────────────────────────────────────────────── */
 
 *, *::before, *::after {
