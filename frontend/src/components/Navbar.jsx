@@ -15,7 +15,10 @@ export default function Navbar({ theme, onToggleTheme }) {
     <nav className="navbar">
       <div className="navbar-inner">
         <Link to="/" className="navbar-brand">
-          <Shield size={24} className="navbar-logo" />
+          {/* 3D perspective wrapper for the shield */}
+          <div className="logo-3d-wrap">
+            <Shield size={26} className="navbar-logo" />
+          </div>
           <span className="navbar-title">MileWatch</span>
           <span className="navbar-tag">AI</span>
         </Link>
@@ -27,7 +30,10 @@ export default function Navbar({ theme, onToggleTheme }) {
               to={to}
               className={`navbar-link ${location.pathname === to ? 'active' : ''}`}
             >
-              <Icon size={16} />
+              {/* 3D perspective wrapper for each nav icon */}
+              <span className="icon-3d-wrap">
+                <Icon size={16} className="nav-icon-3d" />
+              </span>
               <span>{label}</span>
             </Link>
           ))}
@@ -41,7 +47,9 @@ export default function Navbar({ theme, onToggleTheme }) {
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
           >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            <span className="icon-3d-wrap toggle-icon-wrap">
+              {theme === 'dark' ? <Sun size={18} className="nav-icon-3d" /> : <Moon size={18} className="nav-icon-3d" />}
+            </span>
             <span className="theme-toggle-label">
               {theme === 'dark' ? 'Light' : 'Dark'}
             </span>
